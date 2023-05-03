@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/khaiquangnguyen/test-release-process/compare/v1.1.0...v1.2.0) (2023-05-03)
+
+
+### Bug Fixes
+
+* 1 ([00b46e3](https://github.com/khaiquangnguyen/test-release-process/commit/00b46e373a3e2b14234b540900ad7d53cfc90048))
+
+
+### Features
+
+* 2 ([a43299b](https://github.com/khaiquangnguyen/test-release-process/commit/a43299b09acee2de7de6b251fd456ce866d2a61e))
+
+
+
 # [1.1.0](https://github.com/khaiquangnguyen/test-release-process/compare/v1.0.0...v1.1.0) (2023-05-03)
 
 
