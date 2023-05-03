@@ -20,4 +20,6 @@ jobs:
           skip-tag: true
 
       - name: "Create release branch"
-        run: "git checkout -b release/${{ steps.changelog.outputs.tag }} && git push origin release/${{ steps.changelog.outputs.tag }}"
+        run: |
+          git checkout -b release/${{ steps.changelog.outputs.tag }} && git push origin release/${{ steps.changelog.outputs.tag }}
+          gh pr create --base prod --title 'Update prod to latest release' --body 'Needs to execute Jenkins after prod update'
