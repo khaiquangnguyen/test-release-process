@@ -1,33 +1,40 @@
-# [1.2.0](https://github.com/Picket-Homes/unite-proxy/compare/v1.0.0...v1.2.0) (2023-04-25)
-
-
-### Features
-
-* add create-release script ([dcf3d35](https://github.com/Picket-Homes/unite-proxy/commit/dcf3d3537e8e8ee8dd90cb279d6e87db473c4c22))
-
-
-
-# [1.0.0](https://github.com/Picket-Homes/unite-proxy/compare/23202109aee84949e4bed5abafbaa990c68d233b...v1.0.0) (2023-04-25)
+# [1.1.0](https://github.com/khaiquangnguyen/test-release-process/compare/v1.0.0...v1.1.0) (2023-05-03)
 
 
 ### Bug Fixes
 
-* fix auth ([3c36892](https://github.com/Picket-Homes/unite-proxy/commit/3c3689228e327926dc4b39408124718c8b365af8))
-* fix cors issue ([5db7432](https://github.com/Picket-Homes/unite-proxy/commit/5db743258f05a7a76f5cd2cad6249b78301f3193))
-* fix listings url ([40d23c0](https://github.com/Picket-Homes/unite-proxy/commit/40d23c0c6b267f48841874e6bb2d21d5530cd64f))
-* removed unused service dependencies ([40e09d0](https://github.com/Picket-Homes/unite-proxy/commit/40e09d0082062322db699d26a8732cb093246cbc))
-* url for ap and annotation ([b241a0a](https://github.com/Picket-Homes/unite-proxy/commit/b241a0acd78557d13deb6d1091d3e638de5ee9ff))
+* fix 3 ([946dabc](https://github.com/khaiquangnguyen/test-release-process/commit/946dabc9713051655d8ceb3868cc836db6b98577))
+* hotfix 0 ([bc98e12](https://github.com/khaiquangnguyen/test-release-process/commit/bc98e12d73b461365b32022686508caa3dd1d9b9))
+* hotfix on-update-main ([55c9e6d](https://github.com/khaiquangnguyen/test-release-process/commit/55c9e6dc7fddbe3df81be1ed1687269dde4e822e))
+* workflow ([ce2f2d7](https://github.com/khaiquangnguyen/test-release-process/commit/ce2f2d73f6d60d64cc399956d93fa5106927a2f3))
+* workflow gh_token ([ebef2f3](https://github.com/khaiquangnguyen/test-release-process/commit/ebef2f310382d2d173323f4538670aa27bc607db))
 
 
 ### Features
 
-* add token route ([241f2f3](https://github.com/Picket-Homes/unite-proxy/commit/241f2f395af113ec0e8c643ca90c091f1464ecb5))
-* added ci-cd config, removed cumin dependency, added healthcheck plugin ([2320210](https://github.com/Picket-Homes/unite-proxy/commit/23202109aee84949e4bed5abafbaa990c68d233b))
-* fix login url ([d48cc35](https://github.com/Picket-Homes/unite-proxy/commit/d48cc358fb099d80c48b2ee06671746dc75cc2b1))
-* installed packages for auth ([9e9edae](https://github.com/Picket-Homes/unite-proxy/commit/9e9edaee4da7e0c2d6835622bdd0e8049fed8c01))
-* update routes and add tests ([96b8025](https://github.com/Picket-Homes/unite-proxy/commit/96b802542c5420cb321eb9a78feb3c8ba19bff9c))
-* update the code structure and add simple tests ([5f32f99](https://github.com/Picket-Homes/unite-proxy/commit/5f32f99fed5d76d8a054feabd6ff2b20cf215b53))
-* update the specs for writing proxy ([c59bd91](https://github.com/Picket-Homes/unite-proxy/commit/c59bd9133ad5ef597c89da23b0181bc30b180ac7))
+* 2 ([4adce3b](https://github.com/khaiquangnguyen/test-release-process/commit/4adce3bbe5d10330700bc595899225f25df079e9))
+* feat 7 ([600af19](https://github.com/khaiquangnguyen/test-release-process/commit/600af19396f4d62c8093d0a51afc43334695ae1e))
+* update workflows ([b2f7db2](https://github.com/khaiquangnguyen/test-release-process/commit/b2f7db20f4bec1aa3e55dbf168358484e6108950))
+* v1 ([4cd9f5e](https://github.com/khaiquangnguyen/test-release-process/commit/4cd9f5ec27dc52b5c39ca3955193e2018d676780))
+* v2 ([32ed268](https://github.com/khaiquangnguyen/test-release-process/commit/32ed268a314693b8f3fb124429c7e7db88c1b726))
+* v3 ([1044198](https://github.com/khaiquangnguyen/test-release-process/commit/1044198232276fdd8d5961a51d0d03c942f88c1e))
+* v3 ([5eccd7f](https://github.com/khaiquangnguyen/test-release-process/commit/5eccd7fc367b92d3a15c723a5e46dba342d373a4))
+* v4 ([dab8cbd](https://github.com/khaiquangnguyen/test-release-process/commit/dab8cbd63d55711aebf99e57ace8b4eb1464edeb))
+* v6 ([a087f56](https://github.com/khaiquangnguyen/test-release-process/commit/a087f56e9eba276cba4c28cad8307c63efcc53ad))
+
+
+
+# [1.0.0](https://github.com/khaiquangnguyen/test-release-process/compare/4b044346046ec552535573b4d34cce925167a7ea...v1.0.0) (2023-05-03)
+
+
+### Bug Fixes
+
+* f1 ([5db17e1](https://github.com/khaiquangnguyen/test-release-process/commit/5db17e114cc2ba0f249c3bf506965d7fd7df7c29))
+
+
+### Features
+
+* dummy feature ([4b04434](https://github.com/khaiquangnguyen/test-release-process/commit/4b044346046ec552535573b4d34cce925167a7ea))
 
 
 
