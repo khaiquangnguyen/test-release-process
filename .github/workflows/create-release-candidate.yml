@@ -18,6 +18,7 @@ jobs:
           skip-commit: true
           create-summary: true
           skip-tag: true
+          skip-version-file: false
 
       - name: "Create release branch"
         run: |
