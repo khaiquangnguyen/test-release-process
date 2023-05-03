@@ -1,0 +1,26 @@
+name: "On update main branch"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - prod
+
+jobs:
+  create-release-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout..."
+        uses: "actions/checkout@v3"
+
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.github_token }}
+          git-branch: prod
+          skip-commit: true
+          create-summary: true
+
+      - name: "Create backmerge PR"
+        run: "gh pr create --base develop --head prod --title 'Backmerge prod into develop' --body 'This PR was automatically created by the backmerge workflow.' --reviewer @picket-homes/developers"
+

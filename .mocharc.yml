@@ -1,0 +1,8 @@
+bail: true
+recursive: true
+spec: build-test/test/specs
+reporter: mocha-jenkins-reporter
+exit: true
+timeout: 10000
+require:
+  - build-test/test/setup.js

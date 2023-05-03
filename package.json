@@ -1,0 +1,109 @@
+{
+  "name": "unite-proxy",
+  "version": "1.2.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "husky install",
+    "dev": "export NODE_ENV=sand && export NODE_CONFIG_ENV=development && tsc-watch --onSuccess \"npm run start\"",
+    "start": "node ./build/src/server.js",
+    "build": "tsc -p tsconfig.build.json",
+    "benchmark:build": "tsc -p tsconfig.benchmark.json",
+    "benchmark:start": "export NODE_ENV=benchmark && export NODE_CONFIG_ENV=benchmark && node ./build-benchmark/benchmark/server.js",
+    "benchmark:run": "npx autocannon -c 100 -d 5 http://localhost:2078/benchmark",
+    "benchmark:setup": "npm run benchmark:build && npm run benchmark:start",
+    "clean": "rm -rf build-benchmark build build-test",
+    "benchmark": "server-test --expect 404 benchmark:setup '2079|2078' benchmark:run",
+    "postbenchmark": "npm run clean",
+    "test:compile": "tsc -p tsconfig.test.json",
+    "test:dev": "npm run test:clean && export NODE_ENV=test && tsc-watch -p tsconfig.test.json --onSuccess mocha",
+    "test:base": "export NODE_ENV=test && npm run test:compile && mocha",
+    "test:clean": "rm -rf build-test",
+    "test": "export JUNIT_REPORT_PATH=./report.xml && npm run test:base; npm run test:clean",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "@mobily/ts-belt": "^4.0.0-rc.5",
+    "axios": "^1.3.5",
+    "config": "^3.3.9",
+    "connect-redis": "^7.0.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "fast-proxy-lite": "^1.1.2",
+    "mocha": "^10.2.0",
+    "node-graceful-shutdown": "^1.1.5",
+    "picket-node-common": "^1.3.81",
+    "restana": "^4.9.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/chai": "^4.3.4",
+    "@types/config": "^3.3.0",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/formidable": "^2.0.5",
+    "@types/http-proxy": "^1.17.10",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.11",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "autocannon": "^7.10.0",
+    "chai": "^4.3.7",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog-jira-editor-body": "github:khaiquangnguyen/cz-conventional-changelog-jira-editor-body",
+    "eslint": "^8.37.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.4",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "formidable": "^2.1.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "mocha-jenkins-reporter": "^0.4.8",
+    "prettier": "^2.8.7",
+    "start-server-and-test": "^2.0.0",
+    "supertest": "^6.3.3",
+    "tsc-watch": "^6.0.0",
+    "typescript": "^5.0.3"
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-jira-editor-body",
+      "types": {
+        "feat": {
+          "description": "A new feature",
+          "title": "Features"
+        },
+        "fix": {
+          "description": "A bug fix",
+          "title": "Bug Fixes"
+        },
+        "refactor": {
+          "description": "A code change that neither fixes a bug nor adds a feature, or general improvements",
+          "title": "Code Refactoring"
+        },
+        "test": {
+          "description": "Adding missing tests or correcting existing tests",
+          "title": "Tests"
+        },
+        "chore": {
+          "description": "Other changes, such as build, documentation",
+          "title": "Chores"
+        }
+      }
+    }
+  }
+}
