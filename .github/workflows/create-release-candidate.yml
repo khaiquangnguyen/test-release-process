@@ -16,9 +16,18 @@ jobs:
           token: ${{ github.token }}
           branch: develop
 
+      - name: Update CHANGELOG
+        id: changelog
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ steps.semver.outputs.next }}
+
       - name: "Create release branch"
         run: |
-          echo '${{ steps.semver.outputs.current }}'
-          echo '${{ steps.semver.outputs.next }}'
-          git checkout -b ${{ steps.semver.outputs.next }} && git push origin release/${{ steps.semver.outputs.next }}
+          echo '${{ steps.changelog.outputs.changes }}'
+          git checkout -b release/${{ steps.semver.outputs.next }} && git push origin release/${{ steps.semver.outputs.next }}
           gh pr create --base production --title 'Update prod to latest release' --body 'Needs to execute Jenkins after prod update'
+
+      - name: "Produce summary"
+        run: echo '${{ steps.changelog.outputs.changes }}' >> $GITHUB_STEP_SUMMARY
