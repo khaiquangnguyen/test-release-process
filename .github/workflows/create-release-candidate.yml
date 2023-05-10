@@ -16,12 +16,14 @@ jobs:
           token: ${{ github.token }}
           branch: develop
 
-      - name: Update CHANGELOG
+      - name: Build Changelog
         id: changelog
-        uses: requarks/changelog-action@v1
+        uses: mikepenz/release-changelog-builder-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ github.token }}
-          tag: ${{ steps.semver.outputs.next }}
+          toTag: ${{ steps.semver.outputs.next }}
+          fromTag: ${{ steps.semver.outputs.next }}
 
       - name: "Create release branch"
         run: |
@@ -30,4 +32,4 @@ jobs:
           gh pr create --base production --title 'Update prod to latest release' --body 'Needs to execute Jenkins after prod update'
 
       - name: "Produce summary"
-        run: echo '${{ steps.changelog.outputs.changes }}' >> $GITHUB_STEP_SUMMARY
+        run: echo '${{ steps.changelog.outputs.changelog }}' >> $GITHUB_STEP_SUMMARY
