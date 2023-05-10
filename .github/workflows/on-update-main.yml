@@ -19,6 +19,9 @@ jobs:
           github-token: ${{ secrets.github_token }}
           git-branch: main
           create-summary: true
+          skip-commit: true
+          skip-version: true
+          skip-tag: false
 
       - name: "Create backmerge PR"
         run: "gh pr create --base develop --head main --title 'Backmerge main into develop' --body 'This PR was automatically created by the backmerge workflow.'"
