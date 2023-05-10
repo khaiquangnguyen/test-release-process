@@ -21,15 +21,14 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          toTag: ${{ steps.semver.outputs.next }}
-          fromTag: ${{ steps.semver.outputs.next }}
 
       - name: "Create release branch"
         run: |
           echo '${{ steps.changelog.outputs.changes }}'
           git checkout -b release/${{ steps.semver.outputs.next }} && git push origin release/${{ steps.semver.outputs.next }}
           gh pr create --base production --title 'Update prod to latest release' --body 'Needs to execute Jenkins after prod update'
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: "Produce summary"
         run: echo '${{ steps.changelog.outputs.changelog }}' >> $GITHUB_STEP_SUMMARY
