@@ -17,11 +17,11 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
-          git-branch: prod
+          git-branch: main
           create-summary: true
 
       - name: "Create backmerge PR"
-        run: "gh pr create --base develop --head prod --title 'Backmerge prod into develop' --body 'This PR was automatically created by the backmerge workflow.'"
+        run: "gh pr create --base develop --head main --title 'Backmerge main into develop' --body 'This PR was automatically created by the backmerge workflow.'"
         env:
           GH_TOKEN: ${{ github.token }}
 
