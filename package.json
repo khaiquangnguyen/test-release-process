@@ -1,6 +1,5 @@
 {
   "name": "unite-proxy",
-  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "prepare": "husky install",
