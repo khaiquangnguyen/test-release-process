@@ -9,21 +9,18 @@ jobs:
       - name: "Checkout..."
         uses: "actions/checkout@v3"
 
-      - name: Conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
+      - name: Get Next Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
         with:
-          github-token: ${{ secrets.github_token }}
-          git-branch: develop
-          skip-commit: true
-          create-summary: true
-          skip-version: true
-          skip-tag: true
+          token: ${{ github.token }}
+          branch: develop
 
       - name: "Create release branch"
         run: |
-          git checkout -b release/${{ steps.changelog.outputs.tag }} && git push origin release/${{ steps.changelog.outputs.tag }}
-          gh pr create --base production --title 'Update prod to latest release' --body 'Needs to execute Jenkins after prod update'
-        env:
-          GH_TOKEN: ${{ github.token }}
-
+          echo '${{ steps.semver.outputs.current }}'
+          echo '${{ steps.semver.outputs.next }}'
+#          git checkout -b ${{ steps.semver.outputs.next }} && git push origin release/${{ steps.semver.outputs.next }}
+#          gh pr create --base production --title 'Update prod to latest release' --body 'Needs to execute Jenkins after prod update'
+#        env:
+#          GH_TOKEN: ${{ github.token }}
