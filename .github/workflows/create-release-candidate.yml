@@ -14,13 +14,17 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
-          git-branch: prod
+          git-branch: develop
+          skip-commit: true
+          skip-version: true
+          skip-tag: true
+          create-summary: true
 
       - name: "Create release branch"
         run: |
           git checkout develop
           git checkout -b release/${{ steps.changelog.outputs.tag }} && git push origin release/${{ steps.changelog.outputs.tag }}
-          gh pr create --base prod --title 'Update prod to latest release' --body 'Needs to execute Jenkins after prod update'
+          gh pr create --base main --title 'Update main to latest release' --body 'Needs to execute Jenkins after prod update'
         env:
           GH_TOKEN: ${{ github.token }}
 
